@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --void: #07090c;
+  --void-2: #0d1218;
+  --fog: rgba(232, 240, 236, 0.06);
+  --line: rgba(232, 240, 236, 0.12);
+  --ink: #e8f0ec;
+  --ink-dim: rgba(232, 240, 236, 0.62);
+  --ink-faint: rgba(232, 240, 236, 0.38);
+  --signal: #c8f542;
+  --signal-2: #7dffb3;
+  --warn: #ff8b5c;
+  --base-a: #7dffb3;
+  --base-t: #ff8b5c;
+  --base-g: #6ec8ff;
+  --base-c: #f0d35a;
+  --panel: rgba(13, 18, 24, 0.72);
+}
+
+@theme inline {
+  --color-background: var(--void);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--void);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--signal) 55%, black);
+  color: #08100a;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.river-mask {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-18%);
+  }
+}
+
+.rise-in {
+  animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.rise-in-delay-1 {
+  animation-delay: 0.12s;
+}
+.rise-in-delay-2 {
+  animation-delay: 0.22s;
+}
+.rise-in-delay-3 {
+  animation-delay: 0.34s;
+}
+.rise-in-delay-4 {
+  animation-delay: 0.46s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in {
+    animation: none;
+  }
+}
