@@ -143,11 +143,11 @@ async function loadModels() {
   try {
     log("loading detector");
     models.detector = await tf.loadLayersModel(
-      "/models/detector-js/model.json",
+      "../models/detector-js/model.json",
     );
     log("loading classifier");
     models.classifier = await tf.loadLayersModel(
-      "/models/classifier-js/model.json",
+      "../models/classifier-js/model.json",
     );
     log("models ready");
     self.postMessage({ type: "ready" });

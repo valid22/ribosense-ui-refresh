@@ -35,7 +35,9 @@ export function useAnnotation() {
       progress: 6,
     });
 
-    const worker = new Worker("/workers/ribo-worker.js?v=strand-theater-3");
+    const worker = new Worker(
+      `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/workers/ribo-worker.js?v=strand-theater-4`,
+    );
     workerRef.current = worker;
 
     worker.onmessage = (e: MessageEvent) => {

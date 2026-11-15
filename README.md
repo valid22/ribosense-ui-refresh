@@ -15,6 +15,10 @@ Siva Sankaran V, Narasimhan K, Ganesan M, Palaniappan A. *RiboSense: web-based p
 
 Models from [APalaniaLab/RiboSense](https://github.com/APalaniaLab/RiboSense). Related: [Riboflow](https://doi.org/10.3389/fbioe.2020.00808).
 
+## Live demo
+
+**GitHub Pages:** [https://valid22.github.io/ribosense-ui-refresh/](https://valid22.github.io/ribosense-ui-refresh/)
+
 ## Run
 
 ```bash
@@ -22,7 +26,16 @@ npm install
 npm run dev
 ```
 
-Port **3847**.
+Port **3847**. With the default `basePath`, open `http://localhost:3847/ribosense-ui-refresh/` (override with `BASE_PATH=` for a root-mounted dev build).
+
+## Static build (GitHub Pages)
+
+```bash
+npm ci
+npm run build
+```
+
+The export is written to `out/`. Pushes to `main` deploy via `.github/workflows/deploy-pages.yml`. Set `BASE_PATH` when building for a subpath other than `/ribosense-ui-refresh`.
 
 ## Try
 
